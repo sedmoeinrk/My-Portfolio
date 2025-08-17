@@ -73,7 +73,7 @@ const Navbar = () => {
 
         {/* Mobile nav */}
         <button
-          className="md:hidden cursor-pointer p-2 text-foreground z-10"
+          className="md:hidden cursor-pointer p-2 text-foreground z-40 animate-mobile-out"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu "}
         >
@@ -82,10 +82,11 @@ const Navbar = () => {
         {isMenuOpen && (
           <div
             className={cn(
-              "fixed inset-0 bg-background/50 backdrop-blur-md flex flex-col items-center justify-center md:hidden transition-all duration-300"
+              "fixed inset-0 bg-background/50 backdrop-blur-md flex flex-col items-center justify-center md:hidden transition-all duration-300 z-10",
+              isMenuOpen ? "animate-mobile-in" : "animate-mobile-out"
             )}
           >
-            <div className="flex flex-col space-y-8 text-xl items-center ">
+            <div className="flex flex-col space-y-8 text-xl items-center">
               <ThemeToggle />
 
               {navItems.map((item, key) => (
