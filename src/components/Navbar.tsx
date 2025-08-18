@@ -88,79 +88,44 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile nav */}
-      {isMenuOpen && (
+
+      <div
+        className={cn(
+          "fixed inset-0 top-[64px] md:hidden z-50",
+          isMenuOpen
+            ? "opacity-100 animate-mobile-in backdrop-blur-md"
+            : "opacity-0 animate-mobile-out z-0"
+        )}
+        onClick={() => setIsMenuOpen(false)}
+      >
         <div
           className={cn(
-            "fixed inset-0 top-[64px] md:hidden transition-opacity duration-300 z-50",
-            isMenuOpen
-              ? "animate-mobile-in backdrop-blur-md"
-              : "animate-mobile-out"
+            "ml-auto h-[calc(100vh)] w-[40vw] max-w-[320px] min-w-[240px]",
+            "bg-background/80 shadow-xl border-t-8 border-border"
           )}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={(e) => (e.stopPropagation(), setIsMenuOpen(false))}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+          id="mobile-menu"
         >
-          <div
-            className={cn(
-              "ml-auto h-[calc(100vh)] w-[40vw] max-w-[320px] min-w-[240px]",
-              "bg-background/80 shadow-xl border-t-8 border-border"
-            )}
-            onClick={(e) => (e.stopPropagation(), setIsMenuOpen(false))}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-            id="mobile-menu"
-          >
-            <div className="flex flex-col space-y-8 text-xl items-center pt-10">
-              <ThemeToggle />
-              {navItems.map((item, key) => (
-                <a
-                  key={key}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300 w-full border-b border-border pb-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
+          <div className="flex flex-col space-y-8 text-xl items-center pt-10">
+            <ThemeToggle />
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 w-full border-b border-border pb-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
         </div>
-      )}
+      </div>
+
       {/* End mobile nav */}
-      {/* {isMenuOpen && (
-        <div
-          className={cn(
-            "fixed inset-0 top-[64px] md:hidden z-50 transition-opacity duration-200"
-          )}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <div
-            className={cn(
-              "ml-auto h-[calc(100vh)] w-[40vw] max-w-[320px] min-w-[240px]",
-              "bg-background shadow-xl border-l border-border",
-              "transition-transform duration-300 translate-x-0"
-            )}
-            onClick={(e) => (e.stopPropagation(), setIsMenuOpen(false))}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-            id="mobile-menu"
-          >
-            <div className="flex flex-col space-y-8 text-xl items-stretch p-6">
-              <ThemeToggle />
-              {navItems.map((item, key) => (
-                <a
-                  key={key}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300 w-full border-b border-border pb-3"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      )} */}
     </>
   );
 };
