@@ -5,27 +5,27 @@ const skills = [
   // frontend
   {
     name: "HTML/CSS",
-    level: 90,
+    level: 100,
     category: "frontend",
   },
   {
     name: "JavaScript",
-    level: 75,
+    level: 95,
     category: "frontend",
   },
   {
     name: "TypeScript",
-    level: 75,
+    level: 70,
     category: "frontend",
   },
   {
     name: "Tailwind",
-    level: 90,
+    level: 100,
     category: "frontend",
   },
   {
     name: "React",
-    level: 80,
+    level: 85,
     category: "frontend",
   },
   {
@@ -37,7 +37,7 @@ const skills = [
   // Tools
   {
     name: "Git/GitHub",
-    level: 85,
+    level: 100,
     category: "tools",
   },
   {
@@ -49,12 +49,12 @@ const skills = [
   // Not Coding related
   {
     name: "Photoshop",
-    level: 80,
+    level: 100,
     category: "graphics",
   },
   {
     name: "Illustrator",
-    level: 80,
+    level: 85,
     category: "graphics",
   },
 ];
@@ -64,7 +64,7 @@ const categories = ["all", "frontend", "tools", "graphics"];
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) => activeCategory === "all" || skill.category === activeCategory,
   );
 
   return (
@@ -83,7 +83,7 @@ const Skills = () => {
                 "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer card-hover",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground"
+                  : "bg-secondary text-secondary-foreground",
               )}
             >
               {category}

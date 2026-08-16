@@ -11,6 +11,15 @@ const projects = [
     imgUrl: "/Car-Show.png",
     tags: ["TypeScript", "Next.js", "Tailwind"],
   },
+  {
+    id: 2,
+    title: "Crypto App",
+    description: "A Crypto App site to keep track on crypto currencies.",
+    demoLink: "https://crypto-app-psi-one.vercel.app/",
+    githubLink: "https://github.com/sedmoeinrk/Crypto-App",
+    imgUrl: "/Crypto-App.png",
+    tags: ["Javascript", "React", "React Router", "CSS"],
+  },
 ];
 const Projects = () => {
   return (
